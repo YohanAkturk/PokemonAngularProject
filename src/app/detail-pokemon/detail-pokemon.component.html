@@ -1,0 +1,23 @@
+<div class="container">
+  <div *ngIf="!pokemon" class="center-align">
+    Le pokémon n'existe pas !
+  </div>
+  <div *ngIf="pokemon" class="center-align card-content">
+    <div class="card horizontal" pkmnBorderCard>
+      <div class="card-image">
+        <img [src]="pokemon.picture" />
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <p>{{ pokemon.name }}</p>
+          <p>{{ pokemon.hp }} pv</p>
+          <p>{{ pokemon.cp }} dégats</p>
+          <p><small>{{ pokemon.created | date:"dd/MM/yyyy" }}</small></p>
+          <span *ngFor="let type of pokemon.types" class="{{ type | pokemonTypeColor }}">
+            {{ type }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
