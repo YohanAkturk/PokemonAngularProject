@@ -2,7 +2,7 @@
     <!-- Une row pour materialize contient max 12 elts (medium==écran taille normal, d'où le m pour col m4 pour dire je veux divisé 12par4 pour avoir 3 elts) -->
     <div class="row">
       <div *ngFor="let pokemon of pokemonList" class="col m4 s6">
-        <div class="card horizontal" pkmnBorderCard=>
+        <div (click)="goToPokemon(pokemon)" class="card horizontal" pkmnBorderCard=>
           <div class="card-image">
             <img [src]="pokemon.picture" />
           </div>
