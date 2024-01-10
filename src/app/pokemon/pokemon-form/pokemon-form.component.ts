@@ -27,7 +27,6 @@ export class PokemonFormComponent implements OnInit{
 
   selectType($event: Event, type: string){
     const isChecked = ($event.target as HTMLInputElement).checked
-  
     if(isChecked){
       this.pokemon.types.push(type)
     }else{
@@ -38,10 +37,10 @@ export class PokemonFormComponent implements OnInit{
 
   isTypesValid(type: string): boolean {
     //Si le pokemon a un seul type et que le user coche(décoche, taf dessus) ce type
-    if(this.types.length == 1 && this.hasType(type)){
+    if(this.pokemon.types.length == 1 && this.hasType(type)){
       return false
     }
-    if(this.types.length > 2 && !this.hasType(type)){
+    if(this.pokemon.types.length > 2 && !this.hasType(type)){
       return false
     }
     return true
