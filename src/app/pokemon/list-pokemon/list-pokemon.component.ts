@@ -16,7 +16,9 @@ export class ListPokemonComponent implements OnInit{
     ) {}
 
     ngOnInit() {
-        this.pokemonList = this.pokemonService.getPokemonList()
+      //Je me subscribe (abonne) à un observable de mon service qui me retourne une liste de pokémin que j'affecte finalement à l'attribut
+        this.pokemonService.getPokemonList()
+        .subscribe(pokemonList => this.pokemonList = pokemonList)
     }
 
   goToPokemon(pokemon: Pokemon){
